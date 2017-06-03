@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .list{
+                display: inline-block;
+            }
+            h2{
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+        <div style="display: flex;">
+            <div class="list">
+                <ol>
+                    <div><h2>first</h2><input type="button" style="margin-top: 26px; float: rihgt;" value="" id="left1"/></div>
+                    <div><h2>second</h2><input type="button" value=""id="left2" /></div>
+                    <div><h2>third</h2><input type ="button" style="margin-top: 26px; float: rihgt;" value=""id="left3" /></div>
+                </ol>
+            </div>
+            <canvas id="canvas" style="width: 432px;height: 216px; margin-top: 39px;"></canvas>
+            <div class="list">
+                <ol style="padding-left: 0">
+                    <div><input type="button" value="" id="right1" /><h2>first</h2></div>
+                    <div><input type="button" value="" id="right2"/><h2>second</h2></div>
+                    <div><input type="button" value="" id="right3"/><h2>third</h2></div>
+
+                </ol>
+            </div>
+        </div> 
+        <input id="abc" type="text">
+        <script src="point.js">
+        </script>
+    </body>
+</html>

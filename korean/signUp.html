@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #ground{
+                position: relative;
+                width: 84rem;
+                height: 60rem;
+                left: 0rem;
+                top: -60rem;             
+            }
+            #name{
+                position: absolute;
+                left: 13rem;
+                top: 7rem;
+                width: 25rem;
+                height: 5rem;
+            }
+            #id{
+                position: absolute;
+                left: 10rem;
+                top: 15rem;
+                width: 28rem;
+                height: 5rem;
+            }
+            #pw{
+                position: absolute;
+                left: 8rem;
+                top: 23rem;
+                width: 30rem;
+                height: 5rem;
+            }
+            #select{
+                position: absolute;
+                left: 6rem;
+                top: 37rem;
+                width: 18rem;
+                height: 5rem;
+            }
+            #boy{
+                position: absolute;
+                left: 26rem;
+                top: 33rem;
+                width: 15rem;
+                height: 25rem;
+            }
+            #girl{
+                position: absolute;
+                left: 42rem;
+                top: 33rem;
+                width: 15rem;
+                height: 25rem;
+            }
+            #grade{
+                position: absolute;
+                left: 45rem;
+                top: 7rem;
+                width: 12rem;
+                height: 5rem;
+            }
+            #class{
+                position: absolute;
+                left: 60rem;
+                top: 7rem;
+                width: 12rem;
+                height: 5rem;
+            }
+            #create{
+                position: absolute;
+                left: 63rem;
+                top: 40rem;
+                width: 10rem;
+                height: 10rem;
+            }
+            #name_text{
+                position: absolute;
+                border-style: none;
+                left: 20rem;
+                top: 7rem;
+                width: 18rem;
+                height: 5rem;
+                background-color: inherit;
+                font-size: 3rem;
+                text-align: center;
+            }
+            #id_text{
+                position: absolute;
+                border-style: none;
+                left: 20rem;
+                top: 15rem;
+                width: 18rem;
+                height: 5rem;
+                background-color: inherit;
+                font-size: 3rem;
+                text-align: center;
+            }
+            #pw_text{
+                position: absolute;
+                border-style: none;
+                left: 21rem;
+                top: 23rem;
+                width: 17rem;
+                height: 5rem;
+                background-color: inherit;
+                font-size: 3rem;
+                text-align: center;
+            }
+            #grade_text{
+                position: absolute;
+                border-style: none;
+                left: 51rem;
+                top: 7rem;
+                width: 5.5rem;
+                height: 5rem;
+                background-color: inherit;
+                font-size: 3rem;
+                text-align: center;
+            }
+            #class_text{
+                position: absolute;
+                border-style: none;
+                left: 65rem;
+                top: 7rem;
+                width: 6.8rem;
+                height: 5rem;
+                background-color: inherit;
+                font-size: 3rem;
+                text-align: center;
+            }
+            .btn{
+                position: absolute;
+                width: 15rem;
+                height: 15rem;
+                border-bottom-left-radius: 10rem;
+                border-top-left-radius: 9.5rem;
+                border-bottom-right-radius: 10rem;
+                border-top-right-radius: 10.5rem;
+                opacity: 0;
+                cursor: pointer;
+                z-index: 1;
+            }
+            #boy_button{
+                left: 26rem;
+                top: 33rem;
+            }
+            #girl_button{
+                left: 42rem;
+                top: 33rem;
+            }
+            #create_button{
+                left: 63rem;
+                top: 40rem;
+                position: absolute;
+                width: 10rem;
+                height: 10rem;
+                border-bottom-left-radius: 11rem;
+                border-top-left-radius: 9.5rem;
+                border-bottom-right-radius: 10rem;
+                border-top-right-radius: 9.5rem;
+                opacity: 0;
+                cursor: pointer;
+                z-index: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+        <div>
+            <img src="image/배경.jpg" style="width: 83rem; height: 60rem;">
+            <img src="image/03/03_1.png" id="ground">
+            <img src="image/03/03_2.png" id="boy">
+            <img src="image/03/03_3.png" id="girl">
+            <img src="image/03/만들기.png" id="create">
+            <button type="button" id="create_button"></button>
+            <img src="image/03/반.png" id="class">
+            <input type="text" id="class_text"/>
+            <img src="image/03/비밀번호.png" id="pw">
+            <input type="password" id="pw_text"/>
+            <img src="image/03/아이디.png" id="id">
+            <input type="text" id="id_text"/>
+            <img src="image/03/이름.png" id="name">
+            <input type="text" id="name_text"/>
+            <img src="image/03/캐릭터선택.png" id="select">
+            <button type="button" class="btn" id='boy_button'></button>
+            <button type="button" class="btn" id='girl_button'></button>
+            <img src="image/03/학년.png" id="grade">
+            <input type="text" id="grade_text"/>
+        </div>
+
+        <script>
+            var gender = null;
+
+            $("#boy_button").click(function () {
+                    if (gender == 'girl') {
+                        $("#girl_button").css('opacity', '0');
+                        $("#girl_button").css('background-color', 'none');
+                    }
+                gender = 'boy';
+                $("#boy_button").css('opacity', '0.5');
+                $("#boy_button").css('background-color', 'yellow');
+            })
+            $("#girl_button").click(function () {
+                    if (gender == 'boy') {
+                        $("#boy_button").css('opacity', '0');
+                        $("#boy_button").css('background-color', 'none');
+                    }
+                gender = 'girl';
+                $("#girl_button").css('opacity', '0.5');
+                $("#girl_button").css('background-color', 'yellow');
+            })
+            $("#create_button").click(function () {
+                var name = document.getElementById('name_text').value.length;
+                var id = document.getElementById('id_text').value.length;
+                var pw = document.getElementById('pw_text').value.length;
+                var grade = document.getElementById('grade_text').value.length;
+                var c = document.getElementById('class_text').value.length;
+
+                    if (name && id && pw && grade && c && gender) {
+                        console.log("true");
+                        //여기서 저장어떻게 할지 코딩 ~ ~ 
+                    } else {
+                        alert("모두 입력하세요");
+                    }
+            })
+        </script>
+    </body>
+</html>
