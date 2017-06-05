@@ -115,7 +115,7 @@ and open the template in the editor.
             <img src="image/배경.jpg" style="width: 88.5rem; height: 60rem;">
             <img src="image/05/홈.png" id="home">
             <button type="button" class="btn" id="home_button"></button> 
-            <img src="image/06/기역.png" id="example">
+            <img src="image/06/가.png" id="example">
             <img src="image/06/06_2.png" id="write">
             <canvas id="canvas" width="708"style="z-index: 1;"></canvas>
             <img src="image/06/색연필_검.png" id="black" style="top:5rem;" usemap="#black_map">
@@ -150,11 +150,11 @@ and open the template in the editor.
                     $("#previous").css('display', 'initial');
                     $("#previous_button").css('display', 'initial');
                 }
-                if (consonant.length - 1 == count) {
+                if (ch.length - 1 == count) {
                     $("#next").css('display', 'none');
                     $("#next_button").css('display', 'none');
                 }
-                var file = consonant[count];
+                var file = ch[count];
                 $("#example").attr('src', 'image/06/' + file + '.png');
             })
             $("#previous_button").click(function () {
@@ -166,7 +166,7 @@ and open the template in the editor.
                     $("#next").css('display', 'initial');
                     $("#next_button").css('display', 'initial')
                 }
-                var file = consonant[count];
+                var file = ch[count];
                 $("#example").attr('src', 'image/06/' + file + '.png');
             })
         </script>
