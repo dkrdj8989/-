@@ -20,29 +20,98 @@ and open the template in the editor.
                 height: 10rem;
             }
             #example{
-    top: 15rem;
-    left: 10rem;
-    width: 20rem;
-    height: 30rem;
+                top: 15rem;
+                left: 10rem;
+                width: 20rem;
+                height: 30rem;
             }
             #write{
-    top: 0rem;
-    left: -1rem;
-    width: 90rem;
-    height: 60rem;
+                top: 0rem;
+                left: -1rem;
+                width: 90rem;
+                height: 60rem;
             }
+            img[src^="image/06/색연필"]{
+                left: 75rem;
+                width: 14rem;
+                height: 5rem;
+            }
+            .btn{
+                position: absolute;
+                width: 10rem;
+                height: 10.5rem;
+                border-bottom-left-radius: 11rem;
+                border-top-left-radius: 9.5rem;
+                border-bottom-right-radius: 10rem;
+                border-top-right-radius: 9.5rem;
+                opacity: 0;
+                cursor: pointer;
+                z-index: 1;
+            }
+            #next_button{
+                left: 77rem;
+                top: 46rem;
+            }
+            #previous_button{
+                left: 10rem;
+                top: 46rem;
+            }
+            #home_button{
+                top: 3rem;
+                left: 4rem;
+            }
+            #save_button{
+                position: absolute;
+                width: 10rem;
+                height: 10.5rem;
+                border-bottom-left-radius: 11rem;
+                border-top-left-radius: 9.5rem;
+                border-bottom-right-radius: 10rem;
+                border-top-right-radius: 9.5rem;
+                opacity: 1;
+                cursor: pointer;
+                z-index: 1;
+                top: 3rem;
+                left: 4rem;
+            }
+            #previous{
+                width: 10rem;
+                left: 10rem;
+                top: 46rem;
+            }
+            #next{
+                width: 10rem;
+                left: 77rem;
+                top: 46rem;
+            }
+            #save{
+                width: 15rem;
+                left: 43rem;
+                top: 43rem;
+            }
+
         </style>
     </head>
     <body>
         <div>
             <img src="image/배경.jpg" style="width: 88.5rem; height: 60rem;">
             <img src="image/05/홈.png" id="home">
+            <button type="button" class="btn" id="home_button"></button> 
             <img src="image/06/기역.png" id="example">
             <img src="image/06/06_2.png" id="write">
-            <img src="image/06/색연필_검.png" id="black">
-            <img src="image/06/색연필_빨.png" id="red">
-            <img src="image/06/색연필_파.png" id="blue">
-
+            <img src="image/06/색연필_검.png" id="black" style="top:5rem;">
+            <img src="image/06/색연필_빨.png" id="red" style="top:11rem;">
+            <img src="image/06/색연필_파.png" id="blue" style="top:17rem;">
+            <img src="image/02/이전.png" id="previous">
+            <button type="button" class="btn" id="previous_button"></button>         
+            <img src="image/02/다음.png" id="next">
+            <button type="button" class="btn" id="next_button"></button>
+            <img src="image/06/스피커1.png" id="speaker">
+            <img src="image/06/저장.png" id="save">
+            <button type="button" class="btn" id="save_button"></button>
         </div>
+        <script>
+
+        </script>
     </body>
 </html>
