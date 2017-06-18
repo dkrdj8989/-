@@ -1,0 +1,48 @@
+#container {
+    position: relative;
+    width: 1024px;
+    height: 768px;
+    background: url(../images/bg.jpg) no-repeat;
+    background-size: cover;
+}
+
+
+#home { 
+    background: url(../images/btn_home.png) no-repeat;
+}
+
+            
+.leftBottomButton,
+.leftTopButton,
+.rightTopButton,
+.rightBottomButton {
+    position: absolute;
+}
+
+.smallButton { 
+    width: 100px;
+}
+
+.largeButton { 
+    width: 200px;
+}
+
+.leftTopButton {
+    top: 30px;
+    left: 20px;
+}
+
+.rightTopButton {
+    top: 30px;
+    right: 20px;
+}
+
+.leftBottomButton {
+    bottom: 30px;
+    left: 20px;
+}
+
+.rightBottomButton {
+    bottom: 30px;
+    right: 20px;
+}
