@@ -44,11 +44,11 @@
                 홈
             </a>
 
-            <a href=""> 
+            <a href="AlphabetDiary.php"> 
                 <img src="./asset/images/08_1.png">
             </a>
 
-            <a href="">
+            <a href="WordDiary.php">
                 <img src="./asset/images/08_2.png">  
             </a>
         </div>

@@ -2,24 +2,24 @@
 <html>
     <head>
         <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1"/>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1"/>
         <title>한글공부</title>
 
         <link rel="stylesheet" href="./asset/styles/normalize.css" type="text/css"/>
         <link rel="stylesheet" href="./asset/styles/customize.css" type="text/css"/>
         <link rel="stylesheet" href="./asset/styles/addon.css" type="text/css"/>
         <link rel="stylesheet" href="./asset/styles/hangul.css" type="text/css"/>
-        
+
         <style>
             #container {
                 background-position: 0 -425px;
             }
-            
+
             img[src$="bg_index.png"] {    
                 width: 100%;
                 margin-top: 340px;
             }
-            
+
             img[src$="h_text1.png"] {
                 position: absolute;
                 top: 40px;
@@ -29,16 +29,24 @@
                 width: 560px;
             }
             
-            img[src$="h_text2.png"] {
+            #h_text2{
                 position: absolute;
                 top: 120px;
                 left: 0;
                 right: 0;
                 margin: 0 auto;
-                width: 670px;
+                width: 520px;
                 padding-right: 210px;
             }
+            img[src$="text2-1.png"],
+            img[src$="text2-2.png"],    
+            img[src$="text2-3.png"]{
+                max-width: initial;
+                width: 160px;                
+            }
             
+            
+
             img[src$="h_text3.png"] {
                 position: absolute;
                 top: 200px;
@@ -48,7 +56,7 @@
                 width: 630px;
                 padding-left: 450px;
             }
-            
+
             a,
             img[src$="btn_start1.png"] { 
                 display: block;
@@ -60,7 +68,7 @@
                 right: 0;
                 margin: 0 auto;  
             }
-            
+
             img[src$="btn_start2.png"] { 
                 display: none;
                 width: 580px;
@@ -71,7 +79,7 @@
                 margin: 0 auto;  
             }
         </style>
-        
+
         <script src="./asset/scripts/jquery-1.11.1.min.js"></script>
         <script>
             $(document).ready(function () {
@@ -89,20 +97,28 @@
                             function () {
                                 window.location.href = href;
                             });
+                            
+                   <?php setcookie("user",time()); ?>
                 })
             })
+
+
         </script>
     </head>
     <body>
         <div id="container">
-            
+
             <img src="./asset/images/bg_index.png"/>
-            
+
             <img src="./asset/images/h_text1.png"/>
-            <img src="./asset/images/h_text2.png"/>
+            <div id="h_text2">
+            <img src="./asset/images/h_text2-1.png"/>
+            <img src="./asset/images/h_text2-2.png"/>
+            <img src="./asset/images/h_text2-3.png"/>
+            </div>
             <img src="./asset/images/h_text3.png"/>
-            
-            
+
+
             <img src="./asset/images/btn_start1.png"/>
             <img src="./asset/images/btn_start2.png"/>
 

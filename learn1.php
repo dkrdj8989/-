@@ -50,6 +50,7 @@
                 left: 35px;
                 width: 120px;
                 height: 120px;
+                z-index: 9999;
             }
 
             img[src$='btn_prev.png']{
@@ -133,6 +134,7 @@
         </style>
 
         <script type="text/javascript" src="./asset/scripts/jquery-1.11.1.min.js"></script> 
+        <script src="./asset/scripts/DbFunction.js"></script>
         <script type="text/javascript">
 
             // When the window has loaded, scroll to the top of the
@@ -157,19 +159,29 @@
 
             // When The DOM loads, initialize the scripts.
             jQuery(function ($) {
-                var con = ['ㄱ', 'ㄴ', 'ㄷ', 'ㄹ', 'ㅁ'];
-                var fullCon = ['기역', '니은', '디귿', '리을', '미음'];
-                var vo = ['ㅏ', 'ㅑ', 'ㅓ', 'ㅕ', 'ㅗ'];
-                var fullVo = ['아', '야', '어', '여', '오'];
-                var ch = ['가', '나', '다', '라', '마'];
+                var con = ['ㄱ', 'ㄴ', 'ㄷ', 'ㄹ', 'ㅁ','ㅂ','ㅅ','ㅇ','ㅈ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ']; 
+                var fullCon = ['기역', '니은', '디귿', '리을', '미음','비읍','시옷','이응','지읒','치읓','키읔','티읕','히읖','히읗'];
+                var vo = ['ㅏ', 'ㅑ', 'ㅓ', 'ㅕ', 'ㅗ','ㅛ','ㅜ','ㅠ','ㅡ','ㅣ'];  
+                var fullVo = ['아', '야', '어', '여', '오','요','우','유','으','이'];
+                var ch = ['가', '나', '다', '라', '마','바','사','아','자','차','카','타','파','하'];
                 var ppl = ['나', '너', '우리', '친구', '선생님'];
                 var ani = ['여우', '너구리', '오소리', '오리', '사자'];
                 var food = ['가지', '도토리', '레몬', '사과', '자두'];
                 var obj = ['구두', '지우개', '모자', '바지', '바구니'];
-                var imgCon = ['09-01', '09-02', '09-03', '09-04', '09-05'];
-                var imgVo = ['09-06', '09-07', '09-08', '09-09', '09-10'];
-                var imgCh = ['09-11', '09-12', '09-13', '09-14', '09-15'];
-                var img;
+                var imgCon = ['con_r', 'con_s', 'con_e', 'con_f', 'con_a','con_q','con_t','con_d','con_w','con_c','con_z','con_x','con_v','con_g']; // png 파일 
+                var imgVo = ['v_k', 'v_i', 'v_j', 'v_u', 'v_h','v_y','v_n','v_b','v_m','v_l']; // png 파일 
+                var imgCh = ['가', '나', '다', '라', '마','바','사','아','자','차','카','타','파','하']; // png 파일 
+                var img;             
+                var ContentDetail;
+//                var ContentDetails = new Array();   
+//                var Contents = new Array();
+                var idle = new Array();
+                function Content(Type,SubType,Detail,IsLearned){
+                    this.Type = Type;
+                    this.SubType = SubType;
+                    this.Detail = Detail;
+                    this.IsLearned = IsLearned;
+                };
                 // Get a refernce to the canvase.
                 var canvas = $("canvas");
 
@@ -223,6 +235,34 @@
                 // I handle the touch start event. With this event,
                 // we will be starting a new line.
                 var onTouchStart = function (event) {
+                    
+                    if(idle.indexOf(count) == -1){
+                        idle.push(count);
+                        ContentDetail = WhatToLearn[count];
+                        var c = new Content("Alphabet",SubType,count,true);
+                        console.log(JSON.stringify(c));
+                        SaveInDb(JSON.stringify(c));                         
+                    }
+                    ////////////// localstorage //////////////
+//                     if(ContentDetails.indexOf(ContentDetail) == -1) // 중복되지 않는다면 
+//                     { 
+//                         ContentDetails.push(ContentDetail);
+//                         var c = new Content("Alphabet",SubType,ContentDetail,true);
+//                         
+//                         if(localStorage.getItem("Contents") != null)
+//                         {
+//                            Contents = JSON.parse(localStorage.getItem("Contents"));
+//                            Contents.push(c); 
+//                            localStorage.setItem("Contents",JSON.stringify(Contents));
+//
+//                            console.log(Contents);
+//                        }else
+//                        {
+//                            Contents.push(c);
+//                            localStorage.setItem("Contents",JSON.stringify(Contents));
+//                        }
+//                     }
+//                     
                     // Get the native touch event.
                     var touch = getTouchEvent(event);
 
@@ -340,26 +380,36 @@
                     penColor = 'blue'
                 })
                 var count = 0;
+                idle[count] = true;
+                var WhatToLearn;
+                var SubType;
                 var title = "<?php echo $_GET['learn']; ?>";
                 console.log(title);
+                localStorage.setItem("tpye",title);
                 switch (title) {
                     case 'ja':
                         $('h1').text(con[count]);
                         $('h2').text(fullCon[count]);
                         img = imgCon;
                         btn(con, fullCon);
+                        WhatToLearn = con;
+                        SubType = "con";
                         break;
                     case 'mo':
                         $('h1').text(vo[count]);
                         $('h2').text(fullVo[count]);
                         img = imgVo;
                         btn(vo, fullVo);
+                        WhatToLearn = vo;
+                        SubType = "vo";
                         break;
                     case 'ga':
                         $('h1').text(ch[count]);
                         $('h2').text(ch[count]);
                         img = imgCh;
                         btn(ch, ch);
+                        WhatToLearn = ch;
+                        SubType = "ch";
                         break;
 
                 }

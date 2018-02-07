@@ -1,0 +1,129 @@
+#layer1,#layer3,#layer4,#layer5,#layer6{
+    position: absolute;
+    background-size: contain;
+    width: 90%;
+    height: 70%;
+    top: 150px;
+    left: 40px;
+    z-index: 10;
+}
+
+#layer5{
+    width: 500px;
+    height: 370px;
+    top: 330px;
+    left: 390px;
+}
+
+#layer1-left,#layer3-left,#layer6-left {
+    float: left;
+}
+#layer1-right,#layer3-right,#layer6-right {
+    float: right;
+}
+
+#layer1-right,#layer3-right,#layer6-right{
+    height: 540px;
+    padding-right: 55px;
+    width: 230px;
+}
+
+#layer1-left,#layer3-left,#layer6-left{
+    height: 540px;
+    padding-left: 30px;
+    width: 230px;
+}
+
+#layer6-left > li,
+#layer6-right > li{
+    list-style: none;
+    width: 310px;
+    height: 160px;
+    line-height: 100px;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 0;
+    padding-top: 20px;
+}
+.vo:nth-child(10){
+    bottom: 55px;
+    left: 245px;
+    width: 40px;
+    height: 30px;
+}
+
+.vo:nth-child(9){
+    bottom: 35px;
+    left: 245px;
+    width: 30px;
+    height: 25px;
+}
+
+.vo:nth-child(9) > p{
+    padding-top: 13px;
+}
+
+.vo:nth-child(8){
+    bottom: -14px;
+    left: 181px;
+    width: 60px;
+}
+
+.vo:nth-child(8) > p{
+    padding-left: 55px;
+    padding-bottom: 20px;
+}
+
+.vo:nth-child(7){
+    bottom: -14px;
+    left: 281px;
+    width: 60px;
+}
+
+.vo:nth-child(7) > p{
+    padding-right: 35px;
+    padding-bottom: 20px;
+}
+
+.vo:nth-child(6){
+    bottom: 96px;
+    left: 320px;
+}
+
+.vo:nth-child(6) > p{
+    padding-right: 30px;
+    padding-top: 10px;
+}
+
+.vo:nth-child(5){
+    bottom: 136px;
+    left: 430px;
+}
+
+.vo:nth-child(5) > p{
+    padding-right: 40px;
+}
+
+.vo:nth-child(4){
+    bottom: 250px;
+    left: 410px;
+}
+
+.vo:nth-child(4) > p{
+    padding-top: 40px;
+}
+
+.vo:nth-child(3){
+    bottom: 200px;
+    left: 320px;
+}
+
+.vo:nth-child(2){
+    bottom: 130px;
+    left: 240px;
+}
+
+.vo:nth-child(1){
+    bottom: 130px;
+}
+

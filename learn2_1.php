@@ -126,7 +126,8 @@
             }
         </style>
 
-        <script type="text/javascript" src="./asset/scripts/jquery-1.11.1.min.js"></script> 
+        <script type="text/javascript" src="./asset/scripts/jquery-1.11.1.min.js"></script>
+        <script src="./asset/scripts/DbFunction.js"></script>
         <script type="text/javascript">
 
             // When the window has loaded, scroll to the top of the
@@ -151,15 +152,27 @@
 
             // When The DOM loads, initialize the scripts.
             jQuery(function ($) {
-                var con=['ㄱ','ㄴ','ㄷ','ㄹ','ㅁ'];
-                var fullCon=['기역','니은','디귿','리을','미음'];  
-                var vo=['ㅏ','ㅑ','ㅓ','ㅕ','ㅜ'];
-                var fullVo=['아','야','어','여','우'];
-                var ch=['가','나','다','라','마'];
-                var ppl=['나','너','우리','친구','선생님'];
-                var ani=['여우','너구리','오소리','오리','사자'];
-                var food=['가지','도토리','레몬','사과','자두'];
-                var obj=['구두','지우개','모자','바지','바구니'];
+                var ppl = ['나', '너', '우리', '친구', '선생님','1','2','3',
+                           '4','5','6','7','8'];
+                var ani = ['여우', '너구리', '오소리', '오리', '사자','거미','너구리',
+                           '다람쥐','달팽이','돼지','두꺼비','두더지','매미','자라',
+                           '제비','참새','코끼리','타조','토끼','하마','호랑이'];
+                var food = ['가지', '도토리', '레몬', '사과', '자두','고구마','도라지',
+                            '무','물고기','바나나','사과','오이','참외','콩','파','포도',
+                            '호박'];
+                var obj = ['구두', '지우개', '모자', '바지','바구니','가방','꽃','단풍',
+                           '시계','안경','양말','자동차','장갑','장난감','책상','화분',
+                           '회전목마'];
+                var ContentDetail;  
+//                var ContentDetails = new Array();
+//                var Contents = new Array();
+                var idle = true;
+                function Content(Type,SubType,Detail,IsLearned){
+                    this.Type = Type;
+                    this.SubType = SubType;
+                    this.Detail = Detail;
+                    this.IsLearned = IsLearned;
+                };
                 // Get a refernce to the canvase.
                 var canvas = $("canvas");
 
@@ -213,6 +226,45 @@
                 // I handle the touch start event. With this event,
                 // we will be starting a new line.
                 var onTouchStart = function (event) {
+                    ContentDetail = WhatToLearn[<?php echo $_GET['count']; ?>];
+                    console.log(ContentDetail);
+                    if(idle){
+                        ContentDetail = WhatToLearn[order];
+                        var c = new Content("Word",SubType,order,true);
+                        console.log(JSON.stringify(c));
+                        SaveInDb(JSON.stringify(c)); 
+                        idle = false;
+                    }
+                    ////////// localstorage ///////////
+//                     if(localStorage.getItem("ContentDetails") == null)
+//                     {
+//                         console.log("ContentDetails is null");
+//                     }else
+//                     {
+//                         ContentDetails = JSON.parse(localStorage.getItem("ContentDetails"));
+//                     }
+                     
+//                     if(ContentDetails.indexOf(ContentDetail) == -1) // 중복되지 않는다면 
+//                     {   
+//                         ContentDetails.push(ContentDetail);
+//                         // 페이지가 바뀔때 마다 값이 초기화되기 때문에 localStorage에 저장해둔다.
+//                         localStorage.setItem("ContentDetails",
+//                                               JSON.stringify(ContentDetails)); 
+//                         var c = new Content("Word",SubType,ContentDetail,true);
+//                         
+//                         if(localStorage.getItem("Contents") != null)
+//                         {
+//                            Contents = JSON.parse(localStorage.getItem("Contents"));
+//                            Contents.push(c); 
+//                            localStorage.setItem("Contents",JSON.stringify(Contents));
+//                            
+//                            console.log(Contents);
+//                        }else
+//                        {
+//                            Contents.push(c);
+//                            localStorage.setItem("Contents",JSON.stringify(Contents));
+//                        }
+//                     }
                     // Get the native touch event.
                     var touch = getTouchEvent(event);
 
@@ -332,19 +384,29 @@
                 var count=0;
                 var order=<?php echo $_GET['count']?>;
                 var title="<?php echo $_GET['learn'];?>";
+                var SubType;
+                var WhatToLearn;
                 console.log(title);
                 switch(title){
                     case 'in':                   
                         btn(ppl);
+                        WhatToLearn = ppl;
+                        SubType = "ppl";
                         break;
                     case 'dong':
                         btn(ani);
+                        WhatToLearn = ani;
+                        SubType = "ani";
                         break;
                     case 'um':
                         btn(food);
+                        WhatToLearn = food;
+                        SubType = "food";
                         break;
                     case 'sa':
                         btn(obj);
+                        WhatToLearn = obj;
+                        SubType = "obj";
                         break;
                          
                 }
@@ -373,6 +435,7 @@
                               $('img[src$="btn_next.png"]').css('display','none');
                         }      
                     $('img[src$="btn_next.png"]').click(function (){
+                        pen.clearRect(0, 0, 1024, 1024);
                         count++;
                         var str='';
                         $('h1').text(cha[count]);
@@ -395,6 +458,7 @@
                     });
 
                     $('img[src$="btn_prev.png"]').click(function (){
+                        pen.clearRect(0, 0, 1024, 1024);
                         count--;
                         var str='';
                         $('h1').text(cha[count]);

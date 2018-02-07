@@ -119,7 +119,11 @@
                 left: 480px;
                 
                 background-image: url(./asset/images/btn_regist_female.png);
-            } 
+            }
+            
+            #submit{
+                background-image: url('')
+            }
             
             .rightBottomButton {
                 right: 150px;
@@ -134,20 +138,55 @@
         <script src="./asset/scripts/jquery-1.11.1.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
+                var User = {"Name":null,"Grade":null,"Class":null,"Id":null,"Password":null,"Sex":null};
                 
-                $('button').click(function () {
-                    
+                
+                $('#submit').click(function () {
+                        // 입력한 데이터들이 유효한가 
+                        var IsVaild=true;
+                        // 공백제거 (비밀번호 제외)
+                        User.Name = $.trim(user.이름.value); 
+                        User.Grade = $.trim(user.학년.value);
+                        User.Class = $.trim(user.반.value);
+                        User.Id = $.trim(user.아이디.value);
+                        User.Password = user.비밀번호.value;
+                        User.Sex = $(':input:radio[name=성별]:checked').val();
+                        
+                        console.log(User.Name);
+                        for(var key in User)
+                        {
+                            console.log(key);
+                            console.log(User[key]);
+                            if(!User[key]) // 하나라도 값이 비어있다면
+                            {
+                                IsVaild=false;
+                            }
+                        }
+                        
+                        if(!IsVaild)
+                        {
+                            alert("사용자 정보를 모두 입력하세요");
+                            return;
+                        }else
+                        {
+                           localStorage.clear();
+                            $("form[name=user]").submit();
+                            localStorage.setItem("user",User);
+                            location.href="./home.php";
+                        }   
+//                        location.href="./home.php";
                 });
+                
             });
         </script>
     </head>
     <body>
         <div id="container">
-            <form>
+            <form name="user" method="post" action="php/UserStoreProcess.php">
 
                 <img src="./asset/images/bg_regist.png"/>
 
-                <input type="text" name="이름"/>
+                <input type="text" size="20px" name="이름"/>
 
                 <input type="text" name="학년"/>
                 <input type="text" name="반"/>
@@ -160,9 +199,10 @@
                 <input type="radio" name="성별" value="남자"/>
                 <input type="radio" name="성별" value="여자"/>
                 
-                <a href="./home.php" class="rightBottomButton largeButton">
+                <a type="submit" id="submit" class="rightBottomButton largeButton">
                     <img src="./asset/images/btn_submit.png"/>
                 </a>
+
             </form>
         </div>
     </body>

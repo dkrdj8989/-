@@ -1,0 +1,381 @@
+body{
+    background:#e0e0e0;
+    margin:0px;
+    padding:0px;}
+.main{
+    background:url(../../teak.jpg);
+    box-shadow:0px 90px 90px black;
+    background-size:cover;
+    border-radius:2em;
+    width:790px;
+    height:550px;
+    padding:30px;
+    margin-left:290px;
+}
+.list{
+    position: relative;
+    left: -100px;
+    right: 0;
+    margin: auto;
+    display: table;
+    font-size: 1.4em;
+    color: white;
+}
+
+.list li{
+    cursor: pointer;
+    margin: 30px 0;
+}
+#btn-save{
+    position: relative;
+    margin: auto;
+    display: table;
+    left: -350px;
+    top: 100px;
+}
+.right{
+    border-top-left-radius: 3em;
+    border-bottom-right-radius: 3em;
+    border-top-right-radius: 3em;
+    border-bottom-left-radius: 3em;
+
+    background:#e0e0e0;
+    margin-left:400px;
+    width:400px;
+    margin-top:500px;
+    height:500px;;
+    box-shadow:0px 90px 90px black;
+}
+
+.right h1{
+    margin-top:60px;
+    padding:30px;
+}
+
+.paper1{
+    border-bottom-right-radius:3em;
+    border-top-right-radius: 3em;
+
+    background:#fff;
+    width:380px;
+    height:480px;
+    margin-top:90px;
+    padding:5px;
+}
+.left{
+    transition-duration:1s;
+    border-bottom-left-radius: 3em;
+    border-top-left-radius: 3em;
+    border-top-right-radius: 3em;
+    border-bottom-right-radius: 3em;
+
+    background:blue;
+
+    margin-left:-5px;
+    width:370px;
+    margin-top:-790px;
+    height:500px;;
+    box-shadow:0px 90px 90px black;
+}
+.left:hover{
+    transform: rotatey(20deg);
+    transition-duration:1s;
+}
+
+.paper1{
+    border-top-left-radius: 3em;
+    border-bottom-left-radius: 3em;
+    background:#fff;
+    width:365px;
+    height:480px;
+    margin-bottom:300px;
+    box-shadow:10px 10px 10px black;
+    margin-top:-495px;
+    margin-left:15px;
+}
+.paper2{
+    border-top-left-radius: 3em;
+    border-bottom-left-radius: 3em;
+    background:#fff;
+    width:365px;
+    height:480px;
+    margin-bottom:300px;
+    box-shadow:5px 5px 5px black;
+    margin-top:-785px;
+    margin-left:15px;
+    border-top-right-radius: 3em;
+    border-bottom-right-radius: 3em;
+}
+.paper3{
+    border-top-left-radius: 3em;
+    border-bottom-left-radius: 3em;
+    background:#fff;
+    width:350px;
+    height:480px;
+    margin-bottom:300px;
+    box-shadow:5px 5px 5px black;
+    margin-top:-785px;
+    margin-left:15px;
+    border-top-right-radius: 3em;
+    border-bottom-right-radius: 3em;
+}
+.paper4{
+    border-top-left-radius: 3em;
+    border-bottom-left-radius: 3em;
+    background:#fff;
+    width:350px;
+    height:480px;
+    margin-bottom:300px;
+    box-shadow:5px 5px 5px black;
+    margin-top:-785px;
+    margin-left:15px;
+    border-top-right-radius: 3em;
+    border-bottom-right-radius: 3em;
+}
+.paper4:hover{transform: rotateY(190deg);
+
+}
+.dot1{
+    border-radius:20em;
+    background:#fff;
+    width:20px;
+    height:20px;
+    margin-left:10px;
+    margin-top:-390px;
+}
+.dot2{
+    border-radius:20em;
+    background:grey;
+    width:15px;
+    height:15px;
+    margin-left:2px;
+    margin-top:-170px;
+    box-shadow:0px 90px 90px grey;}
+
+.dot3{
+    border-radius:20em;
+    background:#fff;
+    width:20px;
+    height:20px;
+    margin-left:727px;
+    margin-top:-225px;
+}
+
+.dot3inner{
+    border-radius:20em;
+    background:grey;
+    width:15px;
+    height:15px;
+    margin-left:2px;
+    margin-top:-170px;
+    box-shadow:0px 90px 90px grey;
+}
+
+
+
+.A{
+    color:#fff;
+    padding:30px;
+    margin-left:30px;
+    font-weight:bold;
+    font-size:30px;
+    font-family:Indie Flower;
+    margin-left:40px;
+
+
+}
+
+
+#pencil_wrapper{
+    position: absolute;
+    top: 20px;
+    left: 380px;
+    width: 50px;
+    height:40px;
+    margin-left: 100px;
+}
+.eraser{
+    position: relative;
+    top: 1px;
+    left: -11px;
+    width: 43px;
+    height: 20px;
+    box-shadow: 0 3px 1px #b57070, 0 -1px 2px #b57070;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    background: linear-gradient(to right,  #fff 0%,#fff 40%,#fff 75%,#fff 100%);
+}
+.sleeve{
+    position: relative;
+    top: 2px;
+    left: -13px;
+    width: 46px;
+    height: 30px;
+    border-radius: 2px;
+    border-bottom: solid thin #2C2C2C;
+    border-right: solid thin #2C2C2C;
+    background: linear-gradient(to right, #867163 0%,#f8e0cb 40%, #eed3be 50%, #4c3b30 100%);
+    z-index: 2;
+}
+.sleeve:before {
+    position: absolute;
+    content: "";
+    top: 8px;
+    left: 5px;
+    width: 34px;
+    height: 8px;
+    border-top: solid 3px rgba(0,0,0,.07);
+    border-bottom: solid 3px rgba(0,0,0,.07);
+    border-radius: 2px;
+}
+.shaft {
+    position: relative;
+    top: 0;
+    width: 21px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 1;
+}
+.shaft:before,
+.shaft:after {
+    position: absolute;
+    content: "";
+    width: 10px;
+}
+.shaft,
+.shaft:before,
+.shaft:after {
+    top: 0;
+    height: 175px;
+}
+.shaft:before {
+    left: -12px;
+    border-top-left-radius: 4px;
+    border-bottom-right-radius: 10px;
+}
+.shaft:after {
+    left: 21px;
+    border-top-right-radius: 2px;
+    border-bottom-left-radius: 8px;
+}
+.point {
+    position: relative;
+    top: -2px;
+    left: -12px;
+    width: 0;
+    height: 0;
+    border-top: solid 40px rgba(202,176,147,1);
+    border-right: solid 22.5px rgba(202,176,147,0);
+    border-left: solid 22.5px rgba(202,176,147,0);
+}
+.point:before {
+    position: absolute;
+    content: "";
+    top: -50px;
+    left: -18px;
+    width: 35px;
+    height: 10px;
+    background: rgba(197,173,145,1);
+}
+.point:after {
+    position: absolute;
+    content: "";
+    top: -49px;
+    left: -15px;
+    width: 30px;
+    height: 40px;
+    background: linear-gradient(to right,  rgba(208,181,159,0.65) 0%,rgba(253,231,213,1) 40%,rgba(240,187,162,0.5) 85%,rgba(197,173,145,1) 100%);
+    border-radius: 50% / 0% 0% 80% 80%;
+}
+.lead {
+    position: relative;
+    top: -14px;
+    left: 3px;
+    width: 0;
+    height: 0;
+    border-top: solid 13px #000000;
+    border-right: solid 7px rgba(255,255,255,0);
+    border-left: solid 7px rgba(255,255,255,0);
+    z-index: 1;
+}
+.lead:before {
+    position: absolute;
+    content: "";
+    top: -13px;
+    left: -5px;
+    border-top: solid 10px rgba(255,255,255,.6);
+    border-right: solid 0 rgba(0,255,0,0);
+    border-left: solid 5px rgba(255,255,255,0);
+}
+.lead:after {
+    position: absolute;
+    content: "Ideas";
+    top: -80px;
+    left: -53px;
+    width: 105px;
+    display: block;
+    color: #000000;
+    font: small-caps 14px 'helvetica';
+    text-transform: lowercase;
+    text-align: right;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 0px rgba(255,255,255,.35);
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+#pencil_wrapper.green .shaft {
+    background-color: #2b8122;
+    border-bottom: solid 6px #2b8122;
+}
+#pencil_wrapper.green .shaft:before {
+    background-color: #75df25;
+    border-right: solid 2px #75df25;
+    border-bottom: solid 4px #75df25;
+    border-left: solid thin #46b100;
+}
+#pencil_wrapper.green .shaft:after {
+    background-color: #1e7605;
+    border-right: solid 1px #0d6504;
+    border-bottom: solid 4px #1e7605;
+    border-left: solid thin #1e7605;
+}
+button{
+  width: 220px;
+  height: 50px;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  background: #01BBDE no-repeat center center;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: bold;
+  border: 0;
+  padding: 15px 20px;
+  border-radius: 50px;
+  outline: 0;
+}
+
+button:active{
+  transform: scale(0.95);
+  background: #008EC3;
+}
+
+button.loading{
+  width: 53px;
+  background-image: url('http://een.ec.europa.eu/sites/default/files/multimedia/ajax-loader-2.gif');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 25px;
+}
+
+button.success{
+  background-image: url('http://www.clker.com/cliparts/x/n/7/m/p/g/check-mark-in-white-md.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 25px;
+}

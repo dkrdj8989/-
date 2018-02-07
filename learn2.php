@@ -18,6 +18,7 @@
                 left: 85px;
                 width: 120px;
                 height: 120px;
+                z-index: 9999;
             }
 
             img[src$='btn_prev.png']{
@@ -53,7 +54,7 @@
             #show{
                 position: absolute;
                 top: 140px;
-                left: 270px;
+                left: 160px;
                 width: 340px;
                 height: 400px;
             }
@@ -71,18 +72,33 @@
         <script type="text/javascript" src="./asset/scripts/jquery-1.11.1.min.js"></script> 
         <script>
             jQuery(function ($) {
-                var ppl = ['나', '너', '우리', '친구', '선생님'];
-                var pplImage = ['na', 'neo', 'woori', 'friends', 'teacher'];
-                var ani = ['여우', '너구리', '오소리', '오리', '사자'];
-                var aniImage = ['fox', 'raccoon', 'osori', 'duck', 'lion'];
-                var food = ['가지', '도토리', '레몬', '사과', '자두'];
-                var foodImage = ['gazi', 'acorn', 'lemon', 'apple', 'plum'];
-                var obj = ['구두', '지우개', '모자', '바지', '바구니'];
-                var objImage = ['gudu', 'eraser', 'hat', 'pants', 'baske'];
+                var ppl = ['나', '너', '우리', '친구', '선생님','가족','나무꾼','아기',
+                           '아버지','어머니','요리사','임금님','콩쥐'];
+                var pplImage = ['na', 'neo', 'woori', 'friends', 'teacher','1','2','3',
+                           '4','5','6','7','8'];
+                var ani = ['여우', '너구리', '오소리', '오리','거미',
+                            '너구리','다람쥐','달팽이','돼지','두꺼비','두더지','매미',
+                            '자라','제비','참새','코끼리','타조','토끼','하마','호랑이'];
+                       
+                       
+                var aniImage = ['fox', 'raccoon', 'osori', 'duck', 'lion','1','2',
+                           '3','4','5','6','7','8','9','10','11','12','13','14','15','16'];
+                var food = ['가지', '도토리', '레몬', '사과', '자두','고구마','도라지',
+                            '무','물고기','바나나','사과','오이','참외','콩','파','포도',
+                            '호박'];
+                var foodImage = ['gazi', 'acorn', 'lemon', 'apple', 'plum','1',
+                            '2','3','4','5','6','7','8','9',
+                            '10','11','12'];
+                var obj = ['구두', '지우개', '모자', '바지','바구니','가방','꽃','단풍',
+                           '시계','안경','양말','자동차','장갑','장난감','책상','화분',
+                           '회전목마'];
+                var objImage = ['gudu', 'eraser', 'hat', 'pants', 'baske','1',
+                           '2','3','4','5','6','7','8','9',
+                           '10','11','12'];
 
                 var title = "<?php echo $_GET['learn'] ?>";
                 var count =<?php echo$_GET['count'] ?>;
-                var image;
+                var image,folder;
 
                 if (!count) {
                     count = 0;
@@ -91,23 +107,27 @@
                 switch (title) {
                     case 'in':
                         word = ppl;
+                        folder = 'ppl';
                         image = pplImage;
                         break;
                     case 'dong':
                         word = ani;
+                        folder = 'ani';
                         image = aniImage;
                         break;
                     case 'um':
                         word = food;
+                        folder = 'food';
                         image = foodImage;
                         break;
                     case 'sa':
                         word = obj;
+                        folder = 'obj';
                         image = objImage;
                         break;
 
-                }
-                ;
+                };
+                
                 if (count > 0) {
                     $("img[src$='btn_prev.png']").css('display', 'initial');
                 }
@@ -115,11 +135,11 @@
                     $("img[src$='btn_next.png']").css('display', 'none');
                 }
 
-                $("#show").attr('src', './asset/images/' + image[count] + '.png');
+                $("#show").attr('src', './asset/images/'+ folder+'/'+ image[count] + '.png');
 
                 $("img[src$='btn_next.png']").click(function () {
                     count++;
-                    $("#show").attr('src', './asset/images/' + image[count] + '.png');
+                    $("#show").attr('src', './asset/images/'+ folder+'/' + image[count] + '.png');
                     if (count > 0) {
                         $("img[src$='btn_prev.png']").css('display', 'initial');
                     }
@@ -134,7 +154,7 @@
 
                 $("img[src$='btn_prev.png']").click(function () {
                     count--;
-                    $("#show").attr('src', './asset/images/' + image[count] + '.png');
+                    $("#show").attr('src', './asset/images/'+folder+'/' + image[count] + '.png');
                     if (count == 0) {
                         $("img[src$='btn_prev.png']").css('display', 'none');
                     }
